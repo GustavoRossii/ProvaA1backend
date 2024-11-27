@@ -1,0 +1,30 @@
+### Listar todas as tarefas
+GET http://localhost:5273/api/tarefas/listar
+
+### Cadastrar uma nova tarefa
+POST http://localhost:5273/api/tarefas/cadastrar
+Content-Type: application/json
+
+{
+    "titulo": "Estudar Node.js",
+    "descricao": "Estudar Node.js para desenvolver aplicações web",
+    "categoriaId": "6d091456-5a2f-4b5a-98fc-f1a3b50a627d"
+}
+
+### Alterar uma tarefa
+PUT http://localhost:5273/api/tarefas/alterar/6a8b3e4d-5e4e-4f7e-bdc9-9181e456ad0e
+Content-Type: application/json
+
+{
+    "titulo": "Concluir relatório atualizado",
+    "descricao": "Terminar relatório para reunião e revisar",
+    "status": "Em andamento",
+    "categoriaId": "bfe4e7dc-81e4-4e47-a67b-d4fbf3e124bd"
+}
+
+### Listar tarefas não concluídas
+GET http://localhost:5273/api/tarefas/naoconcluidas
+
+### Listar tarefas concluídas
+GET http://localhost:5273/api/tarefas/concluidas
+
