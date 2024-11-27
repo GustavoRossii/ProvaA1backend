@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuração do CORS
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -16,15 +16,15 @@ builder.Services.AddCors(options =>
         });
 });
 
-// Configuração do DbContext
+
 builder.Services.AddDbContext<AppDataContext>();
 
 var app = builder.Build();
 
-// Habilitar CORS
+
 app.UseCors();
 
-// Página de exceções do desenvolvedor (útil para depuração)
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -32,9 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/", () => "Prova A1");
 
-// ENDPOINTS DE CATEGORIA
 
-// GET: http://localhost:5273/api/categoria/listar
 app.MapGet("/api/categoria/listar", async ([FromServices] AppDataContext ctx) =>
 {
     var categorias = await ctx.Categorias.ToListAsync();
